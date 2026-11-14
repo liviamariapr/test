@@ -53,6 +53,19 @@ class ProductaaItem extends StatelessWidget {
             color: Theme.of(context).colorScheme.secondary),
             onPressed: () {
               cart.addProduct(product);
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                content: Text('Produto adicionado ao carrinho'),
+                duration: Duration(seconds:2),
+                action:SnackBarAction(
+                  label: 'Desfazer',
+                  onPressed:(){
+                    cart.removeSingleItem(product.id);
+                  }
+                )
+
+              ));
+
             }
           ),
         ),

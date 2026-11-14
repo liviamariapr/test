@@ -23,14 +23,15 @@ class _OrderWidgetState extends State<OrderWidget> {
               trailing: IconButton(
                 icon: Icon(Icons.expand_more),
                 onPressed: (){
-                  _expanded=!_expanded;
+                  setState((){
+                  _expanded=!_expanded;});
                 }
               )
             ),
             if(_expanded)
                 Container(
                   padding: const EdgeInsets.all(10),
-                  height: widget.order.products.length*25,
+                  height: (widget.order.products.length*40)+30,
                   child: ListView(
                     children: widget.order.products.map((prod){
                       return Row(

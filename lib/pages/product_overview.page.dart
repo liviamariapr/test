@@ -37,7 +37,7 @@ class _ProductOvervieState extends State<ProductOvervie> {
                   ),
                   PopupMenuItem(
                     child: Text('Todos'),
-                    value: FilterOption.Favorite,
+                    value: FilterOption.All,
                   ),
                  
                 ],

@@ -21,8 +21,26 @@ class CartItemWidget extends StatelessWidget {
           size:40
         )
       ),
+      confirmDismiss: (_){
+        return showDialog<bool>(
+          context:context,
+          builder: (ctx)=>AlertDialog(
+            title: Text('Tem certeza que deseja excluir o produto?'),
+            content: Text('O producto será excluido permanentemente.'),
+            actions:[
+              TextButton(onPressed: (){
+                Navigator.of(ctx).pop(false);
+              }, child: Text('Não')),
+              TextButton(onPressed: (){
+                Navigator.of(ctx).pop(true);
+              }, child: Text('Sim'))
+            ]
+
+          )
+        );
+      },
       onDismissed: (_){
-        Provider.of<Cart>(context, listen: false).removeItem(cartItem.id);
+        Provider.of<Cart>(context, listen: true).removeItem(cartItem.id);
       },
       
       child: Card(
